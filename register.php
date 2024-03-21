@@ -18,15 +18,7 @@ include('includes/navbar.php');
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <?php
-                    if (isset($_SESSION['status']))
-                    {
-                ?>
-                    <div class="alert alert-success">
-                        <h5><?= $_SESSION['status'] ?></h5>
-                    </div>
-                <?php 
-                    unset($_SESSION['status']);
-                    }
+                    include('includes/status.php');
                 ?>
                 <div class="card shadow">
                     <div class="card-header">
@@ -46,13 +38,24 @@ include('includes/navbar.php');
                                 <label for="">Email Address</label>
                                 <input type="text" name="email" class="form-control">
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="">Password</label>
-                                <input type="password" name="password" class="form-control">
+                            <div class="input-group mb-3">
+                            <label for="password">Password</label>
+                                <div class="input-group">
+                                    <input type="password" name="password" id="password" class="form-control">
+                                    <button class="btn btn-outline-secondary" style="opacity: 0.3;" type="button" onclick="togglePasswordVisibility('password', this)">
+                                        <span class="fa fa-eye" id="password-toggle-icon"></span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="">Confirm Password</label>
-                                <input type="password" name="confirm_ mb-3password" class="form-control">
+                            <div class="input-group mb-3">
+                            <label for="confirm_password">Confirm Password</label>
+                                <div class="input-group">
+                                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" onkeyup="validatePassword()">
+                                    <button class="btn btn-outline-secondary" style="opacity: 0.3;" type="button" onclick="togglePasswordVisibility('confirm_password', this)">
+                                        <span class="fa fa-eye" id="confirm-password-toggle-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="confirm-password-feedback" style="display: none;">Passwords do not match!</div>
                             </div>
                             <div class="form-group">
                                 <button type="submit" name="register_btn" class="btn btn-primary">Register Now</button>
@@ -64,5 +67,32 @@ include('includes/navbar.php');
         </div>
     </div>
 </div>
+
+<script>
+function togglePasswordVisibility(fieldId, toggleButton) {
+    var input = document.getElementById(fieldId);
+    var icon = toggleButton.querySelector('.fa');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.replace('fa-eye', 'fa-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.replace('fa-eye-slash', 'fa-eye');
+    }
+}
+
+function validatePassword() {
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirm_password').value;
+    var feedback = document.getElementById('confirm-password-feedback');
+
+    if (password !== confirmPassword) {
+        feedback.style.display = 'block';
+        feedback.style.color = 'red';
+    } else {
+        feedback.style.display = 'none';
+    }
+}
+</script>
 
 <?php include('includes/footer.php'); ?>

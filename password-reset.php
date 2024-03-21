@@ -18,15 +18,7 @@ include('includes/navbar.php');
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <?php
-                    if (isset($_SESSION['status']))
-                    {
-                ?>
-                    <div class="alert alert-success">
-                        <h5><?= $_SESSION['status'] ?></h5>
-                    </div>
-                <?php 
-                    unset($_SESSION['status']);
-                    }
+                    include('includes/status.php');
                 ?>
                 <div class="card shadow">
                     <div class="card-header">

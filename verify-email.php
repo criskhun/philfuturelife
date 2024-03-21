@@ -25,27 +25,27 @@ if(isset($_GET['token']))
             }
             else
             {
-                $_SESSION['status'] = "Verification Failed!";
+                $_SESSION['status2'] = "Verification Failed!";
                 header("Location: login.php");
                 exit(0);
             }
         }
         else
         {
-            $_SESSION['status'] = "Email Already Verified. Please Login";
+            $_SESSION['status3'] = "Email Already Verified. Please Login";
             header("Location: login.php");
             exit(0);
         }
     }
     else
     {
-        $_SESSION['status'] = "This token doest not exist";
+        $_SESSION['status2'] = "This token doest not exist";
         header("Location: login.php");
     }
 }
 else
 {
-    $_SESSION['status'] = "Not Allowed";
+    $_SESSION['status2'] = "Not Allowed";
     header("Location: login.php");
 }
 

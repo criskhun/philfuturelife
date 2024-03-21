@@ -10,15 +10,7 @@ include('../includes/navbar.php');
         <div class="row">
             <div class="col-md-12">
                 <?php
-                    if (isset($_SESSION['status']))
-                    {
-                ?>
-                    <div class="alert alert-success">
-                        <h5><?= $_SESSION['status'] ?></h5>
-                    </div>
-                <?php 
-                    unset($_SESSION['status']);
-                    }
+                    include('../includes/status.php');
                 ?>
                 <div class="card">
                     <div class="card-header">

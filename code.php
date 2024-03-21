@@ -12,6 +12,7 @@ require 'vendor/autoload.php';
 function sendemail_verify($name, $email, $verify_token)
 {
     $mail = new PHPMailer(true);
+    try {
     $mail->SMTPDebug = 2;
     $mail->isSMTP();
     $mail->SMTPAuth = true;
@@ -38,42 +39,62 @@ function sendemail_verify($name, $email, $verify_token)
 
     $mail->Body = $email_template;
     $mail->send();
+    return true;
+    } catch (Exception $e) {
+        error_log('Mailer Error: ' . $mail->ErrorInfo);
+        return false;
+    }
     echo 'Message has been sent';
 }
 
- if(isset($_POST["register_btn"])){
-    $name = $_POST['name'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
+if(isset($_POST["register_btn"])){
+    $name = trim($_POST['name']);
+    $phone = trim($_POST['phone']);
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
     $verify_token = md5(rand());
 
-    $check_email_query = "SELECT email FROM users WHERE email='$email' LIMIT 1";
-    $check_email_query_run = mysqli_query($conn, $check_email_query);
-
-    if(mysqli_num_rows($check_email_query_run) > 0)
-    {
-        $_SESSION['status'] = "Email Id already Exist";
+    if(empty($name) || empty($phone) || empty($email) || empty($password)) {
+        $_SESSION['status2'] = "All fields are required!";
         header("Location: register.php");
-    }
-    else
-    {
-        //Insert user or rigester users
-        $query = "INSERT INTO users (name, phone, email, password, verify_token) VALUES ('$name', '$phone', '$email', '$password', '$verify_token')";
-        $query_run = mysqli_query($conn, $query);
+        exit(0);
+    } else if($password != $confirm_password) {
+        $_SESSION['status2'] = "Passwords do not match!";
+        header("Location: register.php");
+        exit(0);
+    } else {
+        $check_email_query = "SELECT email FROM users WHERE email=? LIMIT 1";
+        $stmt = $conn->prepare($check_email_query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if($query_run)
-        {
-            sendemail_verify("$name", "$email", "$verify_token");
-            $_SESSION['status'] = "Registration Successfully! Pleae verify your email address.";
+        if($result->num_rows > 0) {
+            $_SESSION['status3'] = "Email already exists!";
             header("Location: register.php");
-        }
-        else
-        {
-            $_SESSION['status'] = "Registration Failed";
-            header("Location: register.php");
+            exit(0);
+        } else {
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $insert_query = "INSERT INTO users (name, phone, email, password, verify_token) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($insert_query);
+            $stmt->bind_param("sssss", $name, $phone, $email, $hashed_password, $verify_token);
+
+            if($stmt->execute()) {
+                if(sendemail_verify($name, $email, $verify_token)) {
+                    $_SESSION['status'] = "Registration successful! Please verify your email address.";
+                } else {
+                    $_SESSION['status3'] = "Registration successful but email sending failed.";
+                }
+                header("Location: register.php");
+                exit(0);
+            } else {
+                $_SESSION['status2'] = "Registration failed";
+                header("Location: register.php");
+                exit(0);
+            }
         }
     }
- }
+}
 
 ?>

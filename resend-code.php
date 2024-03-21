@@ -71,14 +71,14 @@ if(isset($_POST['resend_email_verification_btn']))
             }
         }
         else{
-            $_SESSION['status'] = "Email is not registered, please registere now!";
+            $_SESSION['status2'] = "Email is not registered, please registere now!";
             header("Location: register.php");
             exit(0);
         }
     }
     else
     {
-        $_SESSION['status'] = "Please enter the email field";
+        $_SESSION['status2'] = "Please enter the email field";
         header("Location: resend-email-verification.php");
         exit(0);
     }
