@@ -1,0 +1,39 @@
+#background-image {
+    background-image: url('../images/newbkg.jpg'); /* Adjust the path as necessary */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: calc(100vh - 60px); /* Adjust 60px to match your navbar's actual height */
+}
+
+.my-button {
+    width: 100%;        /* Makes the button full-width */
+    border-radius: 20px; /* Adjust the border-radius as needed for rounded corners */
+}
+
+.my-button2 {
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid gray; /* Gray outline */
+    background-color: transparent; /* Transparent background */
+    color: gray; /* Gray text color */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.my-button2 i { /* Icon styling */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.my-button2:hover {
+    background-color: gray; /* Change background on hover */
+    color: white; /* Change text color on hover */
+}
+
+.no-underline {
+    text-decoration: none; /* Removes the underline */
+}
+
+.no-underline:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}

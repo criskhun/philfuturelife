@@ -13,7 +13,7 @@ include('includes/header.php');
 include('includes/navbar.php');
 ?>
 
-<div class="py-5">
+<div class="py-5" id="background-image">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -58,7 +58,7 @@ include('includes/navbar.php');
                                 <div id="confirm-password-feedback" style="display: none;">Passwords do not match!</div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="register_btn" class="btn btn-primary">Register Now</button>
+                                <button type="submit" name="register_btn" class="btn btn-primary my-button">Register Now</button>
                             </div>
                         </form>
                     </div>

@@ -13,7 +13,7 @@ include('includes/header.php');
 include('includes/navbar.php');
 ?>
 
-<div class="py-5">
+<div class="py-5" id="background-image">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -31,7 +31,7 @@ include('includes/navbar.php');
                                 <input type="text" name="email" class="form-control">
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="resend_email_verification_btn" class="btn btn-primary">Submit</button>
+                                <button type="submit" name="resend_email_verification_btn" class="btn btn-primary my-button">Submit</button>
                             </div>
                         </form>
                     </div>

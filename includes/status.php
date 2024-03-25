@@ -15,7 +15,7 @@
 ?>
     <div class="alert alert-danger alert-dismissible">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Success!</strong> <?= $_SESSION['status2'] ?>
+    <strong>Warning!</strong> <?= $_SESSION['status2'] ?>
     </div>
     <?php 
         unset($_SESSION['status2']);
@@ -27,9 +27,9 @@
 ?>
     <div class="alert alert-warning alert-dismissible">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Success!</strong> <?= $_SESSION['status2'] ?>
+    <strong>Info!</strong> <?= $_SESSION['status3'] ?>
     </div>
     <?php 
-        unset($_SESSION['status2']);
+        unset($_SESSION['status3']);
     }
 ?>

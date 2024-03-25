@@ -1,6 +1,41 @@
 <?php 
 session_start();
 
+require_once 'vendor/autoload.php';
+
+$clientID='656033405692-h3hnlt8osglalnpi06hjnq8nii9t34jp.apps.googleusercontent.com';
+$clientSecret='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';
+$redirectionUrl='http://localhost/philfuturelife/apps/dashboard.php';
+
+//Creating Google Request
+$client = new Google_Client();
+$client->setClientId($clientID);
+$client->setClientSecret($clientSecret);
+$client->setRedirectUri($redirectionUrl);
+$client->addScope('profile');
+$client->addScope('email');
+
+if(isset($_GET['code']))
+{
+    $token=$client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $client->setAccessToken($token);
+
+    $oauth2 = new Google_Service_Oauth2($client);
+    $userInfo = $oauth2->userinfo->get();
+    
+    // Store user information in session variables
+    $_SESSION['email'] = $userInfo->email;
+    $_SESSION['name'] = $userInfo->name;
+
+    // Redirect to create-password.php
+    header('Location: create-password.php');
+    exit(0);
+}
+else
+{
+   // echo "<a href='".$client->createAuthUrl()."'>Login with Google</a>";
+}
+
 if (isset($_SESSION["authenticated"]))
 {
     $_SESSION['status'] = "You are already logged In.";
@@ -11,9 +46,12 @@ if (isset($_SESSION["authenticated"]))
 $page_title = "Login Page";
 include('includes/header.php');
 include('includes/navbar.php');
+
+$email = isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '';
+
 ?>
 
-<div class="py-5">
+<div class="py-5" id="background-image">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -22,13 +60,13 @@ include('includes/navbar.php');
                 ?>
                 <div class="card shadow">
                     <div class="card-header">
-                        <h5>Login Form</h5>
+                        <h5>Welcome to PhilFutureLife</h5>
                     </div>
                     <div class="card-body">
                         <form action="loginCode.php" method="POST">
                             <div class="form-group mb-3">
                                 <label for="">Email Address</label>
-                                <input type="text" name="email" class="form-control">
+                                <input type="text" name="email" value="<?= $email ?>" class="form-control">
                             </div>
                             <div class="input-group mb-3">
                             <label for="password">Password</label>
@@ -39,12 +77,18 @@ include('includes/navbar.php');
                                     </button>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" name="login_now_btn" class="btn btn-primary">Login Now</button>
-                                <a href="password-reset.php" class="float-end">Forget Your Password?</a>
+                            <div>
+                                <a href="password-reset.php" class="float-start no-underline">Forget Your Password?</a>
                             </div>
+                            <br>
+                            <br>
+                            <button type="submit" name="login_now_btn" class="btn btn-primary my-button">Sign in</button>
                             <hr>
-                            <h5>Did not receive your Verification Email? <a href="resend-email-verification.php">Resend</a></h5>
+                            <a href="<?php echo $client->createAuthUrl(); ?>" type="button" name="login_google" class="btn my-button2"><i class="fab fa-google"></i> Continue with Google</a>
+                            <br><br>
+                            <button type="submit" name="login_facebook" class="btn my-button2"><i class="fab fa-facebook"></i> Continue with Facebook</button>
+                            <hr>
+                            <p>Did not receive your Verification Email? <a href="resend-email-verification.php">Resend</a></p>
                         </form>
                     </div>
                 </div>
