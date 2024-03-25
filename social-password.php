@@ -47,6 +47,8 @@ function sendemail_verify($name, $email, $verify_token)
     echo 'Message has been sent';
 }
 
+
+
 if(isset($_POST["registerGoogle"])){
     $name = trim($_POST['name']);
     $phone = trim($_POST['phone']);
@@ -82,11 +84,13 @@ if(isset($_POST["registerGoogle"])){
 
             if($stmt->execute()) {
                 if(sendemail_verify($name, $email, $verify_status)) {
-                    $_SESSION['status'] = "Registration successful! Please verify your email address.";
+                    $_SESSION['status'] = "Login successfully via Google account.";
+                    $_SESSION['email'] = $email;
                     header("Location: apps/dashboard.php");
-                exit(0);
+                    exit(0);
                 } else {
                     $_SESSION['status3'] = "Registration successful but email sending failed.";
+                    $_SESSION['email'] = $email;
                 }
                 header("Location: apps/dashboard.php");
                 exit(0);

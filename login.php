@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php';
 
 $clientID='656033405692-h3hnlt8osglalnpi06hjnq8nii9t34jp.apps.googleusercontent.com';
 $clientSecret='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';
-$redirectionUrl='http://localhost/philfuturelife/apps/dashboard.php';
+$redirectionUrl='http://localhost/philfuturelife/login.php';
 
 //Creating Google Request
 $client = new Google_Client();
@@ -18,7 +18,7 @@ $client->addScope('email');
 if(isset($_GET['code']))
 {
     $token=$client->fetchAccessTokenWithAuthCode($_GET['code']);
-    $client->setAccessToken($token);
+    $client->setAccessToken($token['access_token']);
 
     $oauth2 = new Google_Service_Oauth2($client);
     $userInfo = $oauth2->userinfo->get();
@@ -26,14 +26,11 @@ if(isset($_GET['code']))
     // Store user information in session variables
     $_SESSION['email'] = $userInfo->email;
     $_SESSION['name'] = $userInfo->name;
+    $_SESSION['authenticated'] = true;
 
     // Redirect to create-password.php
     header('Location: create-password.php');
     exit(0);
-}
-else
-{
-   // echo "<a href='".$client->createAuthUrl()."'>Login with Google</a>";
 }
 
 if (isset($_SESSION["authenticated"]))

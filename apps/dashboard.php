@@ -3,6 +3,11 @@ include('../authentication.php');
 $page_title = "Home Page";
 include('../includes/header.php');
 include('../includes/navbar.php');
+
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+    // You can now use the $email variable in dashboard.php
+}
 ?>
 
 <div class="py-5">
@@ -20,9 +25,7 @@ include('../includes/navbar.php');
                         <h2>Access when you are login</h2>
                         <h4>with email and verification</h4>
                         <hr>
-                        <h5>Username: <?= $_SESSION['auth_user']['username']; ?></h5>
-                        <h5>Email: <?= $_SESSION['auth_user']['email']; ?></h5>
-                        <h5>Phone: <?= $_SESSION['auth_user']['phone']; ?></h5>
+                        <h5>Email: <?= $email; ?></h5>
                     </div>
                 </div>
             </div>

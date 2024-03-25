@@ -2,13 +2,6 @@
 session_start();
 include('dbconn.php');
 
-if (isset($_SESSION["authenticated"]))
-{
-    $_SESSION['status'] = "You are already logged In.";
-    header("Location: apps/dashboard.php");
-    exit(0);
-}
-
 $page_title = "Create Password";
 include('includes/header.php');
 include('includes/navbar.php');
@@ -31,8 +24,8 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     // Email already exists, redirect to login with the email pre-filled
-    $_SESSION['status3'] = "Your email is already exist. Please login.";
-    header('Location: login.php?email=' . urlencode($email));
+    $_SESSION['status3'] = "You are login using google account.";
+    header('Location: apps/dashboard.php?email=' . urlencode($email));
     exit();
 }
 
@@ -96,30 +89,30 @@ if ($result->num_rows > 0) {
 </div>
 
 <script>
-function togglePasswordVisibility(fieldId, toggleButton) {
-    var input = document.getElementById(fieldId);
-    var icon = toggleButton.querySelector('.fa');
-    if (input.type === 'password') {
-        input.type = 'text';
-        icon.classList.replace('fa-eye', 'fa-eye-slash');
-    } else {
-        input.type = 'password';
-        icon.classList.replace('fa-eye-slash', 'fa-eye');
+    function togglePasswordVisibility(fieldId, toggleButton) {
+        var input = document.getElementById(fieldId);
+        var icon = toggleButton.querySelector('.fa');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.replace('fa-eye-slash', 'fa-eye');
+        }
     }
-}
 
-function validatePassword() {
-    var password = document.getElementById('password').value;
-    var confirmPassword = document.getElementById('confirm_password').value;
-    var feedback = document.getElementById('confirm-password-feedback');
+    function validatePassword() {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirm_password').value;
+        var feedback = document.getElementById('confirm-password-feedback');
 
-    if (password !== confirmPassword) {
-        feedback.style.display = 'block';
-        feedback.style.color = 'red';
-    } else {
-        feedback.style.display = 'none';
+        if (password !== confirmPassword) {
+            feedback.style.display = 'block';
+            feedback.style.color = 'red';
+        } else {
+            feedback.style.display = 'none';
+        }
     }
-}
 </script>
 
 <?php include('includes/footer.php'); ?>
