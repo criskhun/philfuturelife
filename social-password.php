@@ -86,13 +86,13 @@ if(isset($_POST["registerGoogle"])){
                 if(sendemail_verify($name, $email, $verify_status)) {
                     $_SESSION['status'] = "Login successfully via Google account.";
                     $_SESSION['email'] = $email;
-                    header("Location: apps/dashboard.php");
+                    header("Location: apps/admin_panel.php");
                     exit(0);
                 } else {
                     $_SESSION['status3'] = "Registration successful but email sending failed.";
                     $_SESSION['email'] = $email;
                 }
-                header("Location: apps/dashboard.php");
+                header("Location: apps/admin_panel.php");
                 exit(0);
             } else {
                 $_SESSION['status2'] = "Registration failed";

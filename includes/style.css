@@ -30,6 +30,11 @@ h4 {
     color: var(--bs-emphasis-color);
 }
 
+tr th, tr td {
+    text-align: center;
+    vertical-align: middle;
+}
+
 /* for admin daskboar skeleton */
 .wrapper {
     align-items: stretch;
@@ -51,7 +56,6 @@ h4 {
     overflow: hidden;
     transition: all 0.35s ease-in-out;
     width: 100%;
-    background: var(--bs-dark-bg-subtle);
 }
 
 /* Navbar Elements*/
@@ -135,7 +139,7 @@ a.sidebar-link {
 }
 
 .card {
-    box-shadow: 0 0 .875rem 0 rgba(34, 46, 60, .05);
+    box-shadow: 0 0 .875rem 0 rgba(34, 46, 60, .06);
     margin-bottom: 24px;
 }
 
@@ -190,7 +194,39 @@ html[data-bs-theme="light"] .theme-toggler .fa-sun {
     display: none;
 }
 
+/* admin header */
 
+.admin-header {
+    display: flex;
+    align-items: center;
+}
+
+.admin-header span {
+    display: inline-block;
+    margin-right: 10px; /* Add some space between the elements */
+}
+
+.admin-header h4, .admin-header h6 {
+    margin: 0; /* Remove default margin of headings if necessary */
+}
+
+/*Chart*/
+.chart-container {
+    max-height: 400px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+
+.graph-title {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+}
 
 /*Front page buttons*/
 

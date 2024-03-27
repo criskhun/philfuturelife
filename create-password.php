@@ -25,7 +25,7 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     // Email already exists, redirect to login with the email pre-filled
     $_SESSION['status3'] = "You are login using google account.";
-    header('Location: apps/dashboard.php?email=' . urlencode($email));
+    header('Location: apps/admin_panel.php?email=' . urlencode($email));
     exit();
 }
 

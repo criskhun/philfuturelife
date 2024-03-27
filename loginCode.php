@@ -23,7 +23,9 @@ if (isset($_POST["login_now_btn"])) {
                         'email' => $row['email'],
                     ];
                     $_SESSION['status'] = "You are Logged In Successfully!";
-                    header("Location: apps/dashboard.php");
+                    $email = $row['email'];
+                    $_SESSION['email'] = $email;
+                    header('Location: apps/admin_panel.php?email=' . urlencode($email));
                     exit(0);
                 } else {
                     $_SESSION['status'] = "Please verify your email address to login!";
