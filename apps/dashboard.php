@@ -171,15 +171,6 @@
                                     <h4 class="graph-title">Recent Client</h4>
                                     <div class="chart-container">
                                         <div class="card border-0">
-                                            <div class="card-header">
-                                                <h5 class="card-title">
-                                                    Record of the client
-                                                </h5>
-                                                <h6 class="card-subtitle text-muted">
-                                                    lorem ipsum dolor sit amet consectetur adispistisicing elts. Voluptutatum dacimutation
-                                                    neccesities tibus reprehepibus itaque!
-                                                </h6>
-                                            </div>
                                             <div class="card-body">
                                                 <table class="table">
                                                     <thead>
@@ -249,68 +240,62 @@
                             <div class="card-body p-0 d-flex flex-fill">
                                 <div class="row g-0 w-100">
                                     <h4 class="graph-title">Top Agent</h4>
-                                    <div class="chart-container">
+                                    
                                         <div class="card border-0">
-                                            <div class="card-header">
-                                                <h5 class="card-title">
-                                                    Agent Record
-                                                </h5>
-                                                <h6 class="card-subtitle text-muted">
-                                                    lorem ipsum dolor sit amet consectetur adispistisicing elts.
-                                                </h6>
-                                            </div>
                                             <div class="card-body">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                        <th scope="col">Agent</th>
-                                                        <th scope="col">Id</th>
-                                                        <th scope="col">Client</th>
-                                                        <th scope="col">Collection</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                        <td>
-                                                            <a href="" class="">
-                                                                <img src="../images/labor.png" alt="Mark" class="avatar img-fluid rounded" />
-                                                            </a> 
-                                                            Kenneth Pineda
-                                                            <span class="badge rounded-pill bg-success">Active</span>
-                                                        </td>
-                                                        <td>DVO-2023-00567</td>
-                                                        <td>126</td>
-                                                        <td>P 465,050</td>
-                                                        </tr>
-                                                        <tr>
-                                                        <td>
-                                                            <a href="" class="">
-                                                                <img src="../images/sportswoman.png" alt="Mark" class="avatar img-fluid rounded" />
-                                                            </a> 
-                                                            Jane Quezon
-                                                            <span class="badge rounded-pill bg-success">Active</span>
-                                                        </td>
-                                                        <td>GSS-2023-00321</td>
-                                                        <td>98</td>
-                                                        <td>P 231,150</td>
-                                                        </tr>
-                                                        <tr>
-                                                        <td>
-                                                            <a href="" class="">
-                                                                <img src="../images/man.png" alt="Mark" class="avatar img-fluid rounded" />
-                                                            </a> 
-                                                            Eric Patroc
-                                                            <span class="badge rounded-pill bg-success">Active</span>
-                                                        </td>
-                                                        <td>DVO-2024-10121</td>
-                                                        <td>74</td>
-                                                        <td>P 161,230</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <div class="table-responsive" style="padding: 5px;">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                            <th scope="col">Agent</th>
+                                                            <th scope="col">Id</th>
+                                                            <th scope="col">Client</th>
+                                                            <th scope="col">Collection</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                            <td>
+                                                                <a href="" class="">
+                                                                    <img src="../images/labor.png" alt="Mark" class="avatar img-fluid rounded" />
+                                                                </a> 
+                                                                Kenneth Pineda
+                                                                <span class="badge rounded-pill bg-success">Active</span>
+                                                            </td>
+                                                            <td>DVO-2023-00567</td>
+                                                            <td>126</td>
+                                                            <td>P 465,050</td>
+                                                            </tr>
+                                                            <tr>
+                                                            <td>
+                                                                <a href="" class="">
+                                                                    <img src="../images/sportswoman.png" alt="Mark" class="avatar img-fluid rounded" />
+                                                                </a> 
+                                                                Jane Quezon
+                                                                <span class="badge rounded-pill bg-success">Active</span>
+                                                            </td>
+                                                            <td>GSS-2023-00321</td>
+                                                            <td>98</td>
+                                                            <td>P 231,150</td>
+                                                            </tr>
+                                                            <tr>
+                                                            <td>
+                                                                <a href="" class="">
+                                                                    <img src="../images/man.png" alt="Mark" class="avatar img-fluid rounded" />
+                                                                </a> 
+                                                                Eric Patroc
+                                                                <span class="badge rounded-pill bg-success">Active</span>
+                                                            </td>
+                                                            <td>DVO-2024-10121</td>
+                                                            <td>74</td>
+                                                            <td>P 161,230</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
