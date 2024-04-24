@@ -4,7 +4,7 @@ include('includes/header.php');
 include('includes/navbar.php');
 ?>
 
-<div class="py-5" id="background-image">
+<div class="py-5 backgroundimage" id="background-image">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
