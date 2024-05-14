@@ -1,7 +1,7 @@
 <aside id="sidebar">
         <div class="h-100">
             <div class="sidebar-logo">
-                <a href="#">PhilFutureLife</a>
+                <img src="../images/mainlogowhite.png" class="imagelogosize" alt="PhilFutureLife Logo">
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-header">

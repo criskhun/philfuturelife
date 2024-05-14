@@ -44,7 +44,7 @@ tr th, tr td {
 #sidebar {
     max-width: 264px;
     min-width: 264px;
-    background: rgb(10, 0, 100);
+    background: #008AD7;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -52,6 +52,105 @@ tr th, tr td {
     overflow-x: hidden;
     transition: all 0.35s ease-in-out;
 }
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+
+.imagelogosize {
+    max-width: 200px; /* Set a default max-width */
+    height: auto;
+}
+
+.alerthome {
+    text-align: center;
+    width: 100%; /* Make the alert full width */
+    color: #ffffff;
+    background-color: #008AD7;
+    margin: auto; /* Center the alert */
+    border-radius: 0; /* Remove rounded border */
+}
+
+.alerthome a {
+    color: white; /* Set link color to white */
+    font-weight: bold; /* Make the link bold */
+    text-decoration: underline; /* Underline the link */
+    margin-right: 5px;
+}
+
+.alerthome a:hover {
+    text-decoration: none; /* Underline the link */
+}
+
+.alerthome i {
+    cursor: pointer;
+}
+
+.alerthome i:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.1); /* Scale up the text by 10% */
+}
+
+.alertfoot {
+    text-align: center;
+    width: 100%; /* Make the alert full width */
+    background-color: #ffffff;
+    margin: auto; /* Center the alert */
+    border-radius: 0; /* Remove rounded border */
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 10px; /* Add padding for better visibility */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add shadow */
+}
+
 
 #sidebar::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
@@ -170,15 +269,13 @@ a.sidebar-link {
     bottom: 0;
     max-width: 264px;
     min-width: 264px;
-    background: var(--bs-dark);
+    background-color: #008AD7;
 }
 
 /* Footer link */
 .sidebar-footer .sidebar-link {
     color: #e9ecef; /* Change as needed */
-
     align-items: center;
-
 }
 
 .sidebar-footer .sidebar-link:hover {
@@ -193,10 +290,8 @@ a.sidebar-link {
 }
 
 
-
 .navbar-expand .navbar-nav {
     margin-left: auto;
-    
 }
 
 .content {
@@ -357,6 +452,15 @@ html[data-bs-theme="light"] .theme-toggler .fa-sun {
 
 .no-underline:hover {
     text-decoration: underline; /* Adds underline on hover */
+}
+
+.btnlog {
+    margin-right: 5px;
+}
+
+.btnlog:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.1); /* Scale up the text by 10% */
 }
 
 .nav-link {

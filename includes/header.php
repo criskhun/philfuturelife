@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="includes/style.css">
     <link rel="icon" href="images/social.png" type="image/x-icon">
-
+    
 </head>
-<body>
+<body onload="myFunction()" style="margin:0;">
     
