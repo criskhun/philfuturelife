@@ -7,7 +7,7 @@
                 <li class="sidebar-header">
                     Main Menu
                 </li>
-                <li class="sidebar-item active">
+                <li class="sidebar-item active">    
                     <a href="#" class="sidebar-link">
                         <i class="fa-solid fa-list pe-2"></i>
                         Dashboard

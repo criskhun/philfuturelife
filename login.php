@@ -83,7 +83,7 @@ $email = isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '';
                             <hr>
                             <a href="<?php echo $client->createAuthUrl(); ?>" type="button" name="login_google" class="btn my-button2"><i class="fab fa-google"></i> Continue with Google</a>
                             <br><br>
-                            <button type="submit" name="login_facebook" class="btn my-button2"><i class="fab fa-facebook"></i> Continue with Facebook</button>
+                            <a type="submit" name="login_facebook" class="btn my-button2"><i class="fab fa-facebook"></i> Continue with Facebook</a>
                             <hr>
                             <p>Did not receive your Verification Email? <a href="resend-email-verification.php">Resend</a></p>
                         </form>

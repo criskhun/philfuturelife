@@ -18,7 +18,7 @@ if (isset($_SESSION['email'])) {
         <main class="content px-3 py-2">
             <div class="container-fluid">
                 <div class="m-3 admin-header">
-                    <span><h4>Admin Dashboard |</h4></span>
+                    <span><h6>Admin Dashboard |</h6></span>
                     <span><h6>Welcome back admin: <?= $email; ?></h6></span>
                 </div>
             <!-- dashboard content -->

@@ -35,6 +35,39 @@ tr th, tr td {
     vertical-align: middle;
 }
 
+button, .themebutton {
+    background: linear-gradient(45deg, #B59805, #F21A05);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 7px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, .themebutton:hover {
+    background-color: #F21A05;
+    transform: scale(1.05);
+    color: #ffffff;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.btn-outline-danger:hover {
+    background: linear-gradient(45deg, #B59805, #F21A05);
+    color: white;
+    border: none;
+    padding: 7px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+
+
 /* for admin daskboar skeleton */
 .wrapper {
     align-items: stretch;
@@ -44,7 +77,7 @@ tr th, tr td {
 #sidebar {
     max-width: 264px;
     min-width: 264px;
-    background: #008AD7;
+    background: linear-gradient(45deg, #B59805, #F21A05);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -111,7 +144,7 @@ tr th, tr td {
     text-align: center;
     width: 100%; /* Make the alert full width */
     color: #ffffff;
-    background-color: #008AD7;
+    background: linear-gradient(45deg, #B59805, #F21A05);
     margin: auto; /* Center the alert */
     border-radius: 0; /* Remove rounded border */
 }
@@ -242,15 +275,15 @@ a.sidebar-link {
 /* Hover effect */
 .sidebar-link:hover {
     transform: scale(1.05); /* Grow the link size */
-    color: #007bff; /* Change text color on hover, use your preferred color */
-    background-color: #f0f0f0; /* Slight background on hover, change as needed */
+    background-color: var(--bs-primary-bg-subtle); /* Light background on hover */
+    color: var(--bs-emphasis-color); /* Slight background on hover, change as needed */
 }
 
 /* Active item styling */
 .sidebar-item.active .sidebar-link,
 .sidebar-link.active {
-    background-color: #ffffff; /* Active item background color */
-    color: #333; /* Active item text color */
+    background-color: var(--bs-primary-bg-subtle); /* Light background on hover */
+    color: var(--bs-emphasis-color);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -269,7 +302,7 @@ a.sidebar-link {
     bottom: 0;
     max-width: 264px;
     min-width: 264px;
-    background-color: #008AD7;
+    background: linear-gradient(45deg, #B59805, #F21A05);
 }
 
 /* Footer link */
@@ -279,8 +312,8 @@ a.sidebar-link {
 }
 
 .sidebar-footer .sidebar-link:hover {
-    background-color: #e9ecef; /* Light background on hover */
-    color: var(--bs-dark); /* Dark text on hover, adjust as needed */
+    background-color: var(--bs-primary-bg-subtle); /* Light background on hover */
+    color: var(--bs-emphasis-color); /* if dark mode it will white and if light mode it will dark  */
 }
 
 

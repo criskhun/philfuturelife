@@ -1,6 +1,6 @@
 <?php 
 $page_title = "Dashboard";  
-include("../header.php");
+include("../bodyCamera.php");
 
 ?>
 <div class="wrapper">
@@ -13,54 +13,48 @@ include("../header.php");
         ?>
         <main class="content px-3 py-4">
             <div class="container-fluid">
-                <div class="row" style="display: flex;">
-                    <div class="col" style="display: flex; align-items: stretch;">
-                        <div class="card" style="width:400px">
-                            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-                            <div class="card-body">
-                                <h4 class="card-title">John Doe</h4>
-                                <p class="card-text">Some example text.</p>
-                                <a href="#" class="btn btn-primary">See Profile</a>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card card-height">
+                            <div class="card-body center-all" style="flex: 1;">
+                                <div id="my_camera">
+
+                                </div>
+                                <div id="results" style="visibility: hidden; position: absolute;">
+                                </div>
+                                <br>
+                                <button type="button" class="btn btn-primary" onclick="saveSnap();">Attendance</button><br>  
+                            </div>
+                        </div>
+                                              
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card card-height">
+                            <div class="card-body" style="flex: 1;">
+                                <div class="form-floating">
+                                <select class="form-select" id="sel1" name="sellist">
+                                    <option>Time In</option>
+                                    <option>Break Time Out</option>
+                                    <option>Break Time In</option>
+                                    <option>Time Out</option>
+                                    <option>Overtime Time In</option>
+                                    <option>Overtime Out</option>
+                                </select>
+                                <label for="sel1" class="form-label">Select list (select one):</label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col" style="display: flex; align-items: stretch;">
-                        <div class="card" style="width:400px">
-                            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-                            <div class="card-body">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="display: flex;">
-                    <div class="col" style="display: flex; align-items: stretch;">
-                        <div class="card" style="width:400px">
-                            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-                            <div class="card-body">
-                                <h4 class="card-title">John Doe</h4>
-                                <p class="card-text">Some example text.</p>
-                                <a href="#" class="btn btn-primary">See Profile</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col" style="display: flex; align-items: stretch;">
-                        <div class="card" style="width:400px">
-                            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-                            <div class="card-body">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+                </div>                
             </div>
         </main>
         <?php 
-        //include("../usersFooter.php")
+        include("../usersFooter.php")
         ?>
     </div>
 </div>
+
+
 
 <?php 
 

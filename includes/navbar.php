@@ -24,7 +24,7 @@
                                     <?php $currentPage = basename($_SERVER['PHP_SELF']); ?>
                                     <?php if(!isset($_SESSION['authenticated'])): ?>
                                         <li class="nav-item <?php if($currentPage == 'index.php'){ echo 'active'; } ?>">
-                                            <a class="btnlog btn btn-outline-primary" href="index.php">Contact Us</a>
+                                            <a class="btnlog btn btn-outline-danger" href="index.php">Contact Us</a>
                                         </li>
                                     <?php endif; ?>
                                     
@@ -34,7 +34,7 @@
                                         </li>
                                     <?php else: ?>
                                         <li class="nav-item <?php if($currentPage == 'register.php'){echo 'active';} ?>">
-                                            <a class="btnlog btn btn-primary" href="register.php">Sign Up</a>
+                                            <a class="btnlog btn themebutton" href="register.php">Sign Up</a>
                                         </li>
                                         <li class="nav-item <?php if($currentPage == 'login.php'){echo 'active';} ?>">
                                             <a class="nav-link" href="login.php">Login</a>
@@ -43,7 +43,7 @@
 
                                     <?php if(isset($_SESSION['authenticated'])): ?>
                                         <li class="nav-item">
-                                            <a class="nav-link"  href="../logout.php">Logout</a>
+                                            <a class="nav-link"  href="../logout.php"><strong>Logout</strong></a>
                                         </li>
                                     <?php endif; ?>
                                 </ul>

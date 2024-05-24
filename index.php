@@ -24,7 +24,7 @@ include('includes/navbar.php');
     <div class="alertfoot alert alert-primary alert-dismissible fade show"> 
         This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.
         <a class="" href="index.php">Cookie settings</a>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="alert">Accept</button>
+        <button type="button" class="btn themebutton" data-bs-dismiss="alert">Accept</button>
     </div>
 
 <?php include('includes/footer.php'); ?>

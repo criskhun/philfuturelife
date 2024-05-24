@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         <?php if(isset($page_title)){echo "$page_title";} ?> - PhilFutureLife
     </title>
@@ -26,6 +26,6 @@ https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/css/bootstrap-date
     <link rel="icon" href="../../images/pfl_favbicon.png" type="image/x-icon">
     
 </head>
-<body>
+<body onload="configure();">
 
     
