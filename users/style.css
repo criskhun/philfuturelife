@@ -32,6 +32,22 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+th {
+    white-space: nowrap;
+}
+
+.sticky-col {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    left: 0;
+    background: #f1f1f1; /* Optional: adds a background color to the sticky column */
+    z-index: 3; /* Ensures the sticky column stays on top */
+}
+
+.hidden {
+    display: none;
+}
+
 .wrapper {
     display: flex;
 }
@@ -103,7 +119,6 @@ body {
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -113,16 +128,17 @@ body {
     padding: 2rem 0;
     flex: 1 1 auto;
     overflow: hidden;
-    
 }
 
 a.sidebar-link {
     padding: .625rem 1.625rem;
     color: #FFF;
-    display: block;
+    display: flex; /* Ensures items align horizontally */
+    align-items: center; /* Centers items vertically */
     font-size: 0.9rem;
     white-space: nowrap;
     border-left: 3px solid transparent;
+    transition: background-color 0.25s, border-left 0.25s; /* Smooth transition */
 }
 
 .sidebar-link i,
@@ -146,14 +162,18 @@ a.sidebar-link:hover {
     left: 70px;
     background-color: #008AD7;
     padding: 0;
-    min-width: 15rem;
+    min-width: 200px; /* Ensure the dropdown has enough width */
     display: none;
+    z-index: 1000; /* Ensure dropdown appears above other elements */
+    border: 1px solid #008AD7; /* Add border to avoid overlap */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
 }
 
-#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+#sidebar:not(.expand) .sidebar-item:hover .sidebar-dropdown {
     display: block;
-    max-height: 15em;
-    width: 100%;
+    visibility: visible;
     opacity: 1;
 }
 
@@ -173,6 +193,28 @@ a.sidebar-link:hover {
 #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
     transform: rotate(45deg);
     transition: all .2s ease-out;
+}
+
+.sidebar-dropdown a {
+    color: #FFF; /* Ensure dropdown links inherit the correct color */
+    padding: .625rem 1.625rem; /* Match padding of main links */
+    display: block;
+}
+
+.sidebar-dropdown a:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #F21A05;
+}
+
+
+.side-hr {
+    border: none;
+    border-top: 2px solid white; /* You can adjust the thickness by changing '2px' */
+    margin: 20px 0; /* Optional: Adjust the vertical spacing around the hr */
+}
+
+.profile-name {
+    white-space: nowrap; /* Prevent the text from wrapping */
 }
 
 .navbar {
@@ -209,6 +251,25 @@ a.sidebar-link:hover {
     background-color: #008AD7;
     color: #fff;
     transform: translateY(-10.5px);
+}
+
+.card-sched {
+    transition: transform 0.3s ease, background-color 0.3 ease;;
+}
+
+.card-sched:hover {
+    transform: scale(1.02);
+    color: #FFF;
+    background-color: #008AD7;
+    cursor: pointer;
+}
+
+.bg-time {
+    background-color: rgba(50, 50, 50, 0.24);
+}
+
+.bg-timeW {
+    background-color: rgba(232, 232, 232, 0.05);
 }
 
 .text-success {
@@ -269,6 +330,9 @@ tr.highlight th {
     text-decoration: none; /* Remove underline by default */
     display: inline-block; /* Make the link a block element to allow growth */
     transition: transform 0.2s ease; /* Add transition effect for smooth growth */
+    align-items: center;
+
+    white-space: nowrap;
 }
 
 .goto-task a:hover {
@@ -411,6 +475,27 @@ tr.highlight th {
 
 .uniform-btn {
     width: 50px; /* Set the desired width */
+}
+
+.cert-image {
+    width: 100%;           /* Make the image take full width of the column */
+    height: auto;          /* Let the browser calculate the height */
+    max-height: 200px;     /* Set a maximum height */
+    object-fit: cover;     /* Ensure the image covers the entire area */
+    overflow: hidden;      /* Hide overflow */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.cert-image:hover {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.75);
+    cursor: pointer;
+}
+
+.scrollable-tab {
+    max-height: 500px; /* Adjust the height as needed */
+    overflow-y: auto;
+    overflow-x: hidden; /* Optional: to prevent horizontal scrolling */
+    padding-right: 15px; /* Optional: to add some space for the scrollbar */
 }
 
 @media (min-width: 768px) {

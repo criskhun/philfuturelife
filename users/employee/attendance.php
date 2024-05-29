@@ -1,5 +1,5 @@
 <?php 
-$page_title = "Dashboard";  
+$page_title = "Attendance";  
 include("../bodyCamera.php");
 
 ?>
@@ -23,7 +23,7 @@ include("../bodyCamera.php");
                                 <div id="results" style="visibility: hidden; position: absolute;">
                                 </div>
                                 <br>
-                                <button type="button" class="btn btn-primary" onclick="saveSnap();">Attendance</button><br>  
+                                <button type="button" class="btn btn-primary" onclick="saveSnap();"><i class="fa-solid fa-calendar-plus"></i> Attendance</button><br>  
                             </div>
                         </div>
                                               
@@ -41,6 +41,10 @@ include("../bodyCamera.php");
                                     <option>Overtime Out</option>
                                 </select>
                                 <label for="sel1" class="form-label">Select list (select one):</label>
+                                </div>
+                                <div class="form-floating mb-3 mt-3">
+                                    <input type="text" class="form-control" id="remarks" placeholder="Enter email" name="remarks">
+                                    <label for="remarks">Remarks</label>
                                 </div>
                             </div>
                         </div>

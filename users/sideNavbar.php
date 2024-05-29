@@ -4,24 +4,24 @@
                 <i class="fa-brands fa-windows"></i>
             </button>
             <div class="sidebar-logo">
-                <a href="dashboard.php">PhilFutureLife</a>
+                <a href="../employee/dashboard.php">PhilFutureLife</a>
             </div>
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="dashboard.php" class="sidebar-link">
+                <a href="../employee/dashboard.php" class="sidebar-link">
                     <i class="fa-solid fa-chart-line"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="profile.php" class="sidebar-link">
+                <a href="../employee/profile.php" class="sidebar-link">
                     <i class="fa-solid fa-user"></i>
                     <span>Profile</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="attendance.php" class="sidebar-link">
+                <a href="../employee/attendance.php" class="sidebar-link">
                     <i class="fa-solid fa-clipboard-user"></i>
                     <span>Attendance</span>
                 </a>
@@ -81,6 +81,39 @@
                     <i class="fa-regular fa-message"></i>
                     <span>Document Tracker</span>
                 </a>
+            </li>
+            <hr class="side-hr">
+            <li class="sidebar-item">
+                <a href="../humanResource/masterlist.php" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#hrdiv" aria-expanded="false" aria-controls="hrdiv">
+                    <i class="fa-solid fa-users-between-lines"></i>
+                    <span>Human Resource</span>
+                </a>
+                <ul id="hrdiv" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="../humanResource/masterlist.php" class="sidebar-link">Master List</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="../humanResource/dutySchedule.php" class="sidebar-link">Duty Schedule</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Gov. Mandatory Benefits</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Employee Attendance</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Payroll</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Leaves</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Performance Evaluation</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="../humanResource/recruitment.php" class="sidebar-link">Recruitment</a>
+                    </li>
+                </ul>
             </li>
         </ul>
         <div class="sidebar-footer">

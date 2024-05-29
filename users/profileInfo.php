@@ -14,9 +14,10 @@
                     </div>
                     <hr>
                     <div class="additional-button">
+                        <button type="button" class="btn btn-light mb-1 btn-block">Branch<span class="badge bg-info">GSS</span></button>
                         <button type="button" class="btn btn-light mb-1 btn-block">Useable Leaves<span class="badge bg-info">10</span></button>
                         <button type="button" class="btn btn-light mb-1 btn-block">Performance Rating <span class="badge bg-info">89%</span></button>
-                        <button type="button" class="btn btn-light mb-1 btn-block">Assigned Assets <span class="badge bg-info">1</span></button>
+                        
                         <div class="line"></div>
                         <button type="button" class="btn btn-outline-secondary mb-1 btn-block">Export Profile</button>
                         <div class="input-group mb-3">
@@ -27,30 +28,33 @@
                 </div>
             </div>
         </div>
+        <?php
+                        $activeTab = isset($_GET['activeTab']) ? $_GET['activeTab'] : 'basicInfo';
+                    ?>
         <div class="col-sm-9" style="flex-grow: 1; ">
             <div class="card profile-boxes2" style="height: 100%; width: 100%;">
                 <div class="card-body" style="height: 100%; width: 100%;">
                     <ul class="nav nav-tabs"> <!-- tabs menu -->
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#basicInfo">Basic Information</a>
+                            <a class="nav-link <?php echo ($activeTab == 'basicInfo' ? 'active' : ''); ?>" data-bs-toggle="tab" href="#basicInfo">Basic Information</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#govInfo">Goverment Information</a>
+                            <a class="nav-link <?php echo ($activeTab == 'govInfo' ? 'active' : ''); ?>" data-bs-toggle="tab" href="#govInfo">Goverment Information</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#emergencyCon">Emergency Contact</a>
+                            <a class="nav-link <?php echo ($activeTab == 'emergencyCon' ? 'active' : ''); ?>" data-bs-toggle="tab" href="#emergencyCon">Emergency Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="#socialacc">Socials</a>
+                            <a class="nav-link <?php echo ($activeTab == 'socialacc' ? 'active' : ''); ?>" data-bs-toggle="tab" href="#socialacc">Socials</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#cande">Certificate & Eligibility</a>
+                            <a class="nav-link <?php echo ($activeTab == 'cande' ? 'active' : ''); ?>" data-bs-toggle="tab" href="#cande">Certificate & Eligibility</a>
                         </li>
                     </ul>
 
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane container fade" id="basicInfo">
+                        <div class="tab-pane container <?php echo ($activeTab == 'basicInfo' ? 'active' : 'fade'); ?>" id="basicInfo">
                             <form action="" method="POST">
                                 <div class="row">
                                     <div class="col-sm-6 mt-3 mb-3">
@@ -171,7 +175,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="tab-pane container fade" id="govInfo">
+                        <div class="tab-pane container <?php echo ($activeTab == 'govInfo' ? 'active' : 'fade'); ?>" id="govInfo">
                             <form action="" method="POST">
                                 <div class="row">
                                     <div class="col-sm-6 mt-3 mb-3">
@@ -259,7 +263,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="tab-pane container fade" id="emergencyCon">
+                        <div class="tab-pane container <?php echo ($activeTab == 'emergencyCon' ? 'active' : 'fade'); ?>" id="emergencyCon">
                             <h6 class="mt-2">Contact Person</h6>
                             <div class="row">
                                 <div class="col-sm-6">
@@ -393,7 +397,7 @@
                                 </div>
                             </div>
                         </div>            
-                        <div class="tab-pane container active" id="socialacc">
+                        <div class="tab-pane container <?php echo ($activeTab == 'socialacc' ? 'active' : 'fade'); ?>" id="socialacc">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="input-group mb-3 mt-4">
@@ -464,10 +468,187 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane container fade" id="cande">...</div>
+                        <div class="tab-pane container <?php echo ($activeTab == 'cande' ? 'active' : 'fade'); ?> scrollable-tab" id="cande">
+                            <div class="col d-flex mt-4 justify-content-end">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#certModal">Add Certificate <i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <?php 
+                            include_once("../../dbconn.php");
+                            $query = "SELECT * FROM certificate";
+                            $result = mysqli_query($conn, $query);
+                            if ($result->num_rows>0) {
+                                while($row = mysqli_fetch_array($result)){
+                                    $CertTitle = $row['cert_title'];
+                                    $CertDesc = $row['cert_desc'];
+                                    $CertIssued = $row['issued'];
+                                    $CertExpire = $row['expire'];
+                                    $CertImage = $row['file_name'];
+                                    $CertID = $row['id'];
+
+                                    $imageURL = "../certificatesImages/".$CertImage;
+
+                                    echo '
+                                    <div class="card mt-2 mb-2">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-4 mt-1">
+                                                    <a href="#" 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#CertUp" 
+                                                    data-title="' . htmlspecialchars($CertTitle, ENT_QUOTES, 'UTF-8') . '" 
+                                                    data-desc="' . htmlspecialchars($CertDesc, ENT_QUOTES, 'UTF-8') . '" 
+                                                    data-issued="' . htmlspecialchars($CertIssued, ENT_QUOTES, 'UTF-8') . '" 
+                                                    data-expire="' . htmlspecialchars($CertExpire, ENT_QUOTES, 'UTF-8') . '" 
+                                                    data-image="' . $imageURL . '"
+                                                    data-id="' . $CertID . '">
+                                                        <img src="' . $imageURL . '" class="cert-image" alt="Certificate" style="max-width: 100%; max-height: 130px;">
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-floating mb-2 mt-2">
+                                                        <input type="text" class="form-control" value="' . htmlspecialchars($CertTitle, ENT_QUOTES, 'UTF-8') . '" readonly>
+                                                        <label for="certTitle">Certificate Title</label>
+                                                    </div>
+                                                    <div class="form-floating mb-2">
+                                                        <input type="text" class="form-control" value="' . htmlspecialchars($CertIssued, ENT_QUOTES, 'UTF-8') . '" readonly>
+                                                        <label for="certIssued">Issued on</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-floating mb-2 mt-2">
+                                                        <input type="text" class="form-control" value="' . htmlspecialchars($CertDesc, ENT_QUOTES, 'UTF-8') . '" readonly>
+                                                        <label for="certDesc">Certificate Description</label>
+                                                    </div>
+                                                    <div class="form-floating mb-2">
+                                                        <input type="text" class="form-control" value="' . htmlspecialchars($CertExpire, ENT_QUOTES, 'UTF-8') . '" readonly>
+                                                        <label for="certExpiry">Expire on</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    ';
+                                }
+                            }
+                            ?>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="modal" id="certModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <form action="../uploadCert.php" method="post" enctype="multipart/form-data">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Certificate/Eligibility</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+            <input class="form-control mt-4" type="text" name="CertTitle" id="" placeholder="Certificate Title">
+            <input class="form-control mt-4" type="text" name="CertDesc" id="" placeholder="Certificate Description">
+            <input class="form-control mt-4" type="text" name="CertIssued" id="" placeholder="Issued on">
+            <input class="form-control mt-4" type="text" name="CertExpire" id="" placeholder="Expire on">
+            <input class="form-control mt-4" type="file" name="CertImage" id="">
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <input class="btn btn-primary" type="submit" value="UploadCert" name="submitCert">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div class="modal" id="CertUp">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="updateForm" action="../uploadCert.php" method="POST" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title">Certificate Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="preview" src="" class="img-fluid mb-3" alt="Certificate">                
+                    <div class="form-floating mb-2">
+                        <input class="form-control mt-1" type="file" id="file" name="file" accept="image/*" onchange="previewImage(event)">
+                        <label for="certExpiry">Choose Image to update</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control mt-1" type="text" name="CertTitle" placeholder="Certificate Title">
+                        <label for="CertTitle">Certificate Title</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control mt-1" type="text" name="CertDesc" placeholder="Certificate Description">
+                        <label for="CertDesc">Certificate Description</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control mt-1" type="text" name="CertIssued" placeholder="Issued on">
+                        <label for="CertIssued">Issued on</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control mt-1" type="text" name="CertExpire" placeholder="Expire on">
+                        <label for="CertExpire">Expire on</label>
+                    </div>
+                    <input type="hidden" name="CertID" value="">
+                </div>
+                <div class="modal-footer">
+                    <input class="btn btn-primary" type="submit" value="Update" name="updateCert">
+                    <input class="btn btn-danger" type="submit" value="Delete" name="deleteCert">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var modal = document.getElementById('CertUp');
+    modal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget; // Button that triggered the modal
+        var title = button.getAttribute('data-title');
+        var desc = button.getAttribute('data-desc');
+        var issued = button.getAttribute('data-issued');
+        var expire = button.getAttribute('data-expire');
+        var image = button.getAttribute('data-image');
+        var certID = button.getAttribute('data-id'); // Added line to get CertID
+
+        // Update the modal's content
+        modal.querySelector('.modal-body img').src = image;
+        modal.querySelector('.modal-body input[name="CertTitle"]').value = title;
+        modal.querySelector('.modal-body input[name="CertDesc"]').value = desc;
+        modal.querySelector('.modal-body input[name="CertIssued"]').value = issued;
+        modal.querySelector('.modal-body input[name="CertExpire"]').value = expire;
+        modal.querySelector('.modal-body input[name="CertID"]').value = certID; // Set CertID value
+    });
+});
+</script>
+<script>
+function previewImage(event) {
+    var input = event.target;
+    var preview = document.getElementById('preview');
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        preview.src = "";
+        preview.style.display = 'none';
+    }
+}
+</script>
+
+
