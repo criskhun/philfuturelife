@@ -96,10 +96,13 @@
                         <a href="../humanResource/dutySchedule.php" class="sidebar-link">Duty Schedule</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">Gov. Mandatory Benefits</a>
+                        <a href="../humanResource/mandatoryBen.php" class="sidebar-link">Mandatory Benefits</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">Employee Attendance</a>
+                        <a href="../humanResource/bir.php" class="sidebar-link">BIR and Loans</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="../humanResource/attendance.php" class="sidebar-link">Employee Attendance</a>
                     </li>
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link">Payroll</a>

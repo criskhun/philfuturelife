@@ -21,15 +21,19 @@ if (isset($_POST["login_now_btn"])) {
                         'username' => $row['name'],
                         'phone' => $row['phone'],
                         'email' => $row['email'],
+        
                     ];
                     $_SESSION['status'] = "You are Logged In Successfully!";
                     $email = $row['email'];
                     $_SESSION['email'] = $email;
-                    header('Location: apps/admin_panel.php?email=' . urlencode($email));
+                    $_SESSION['name'] = $row['name'];
+                    
+                    header("Location: apps/admin_panel.php");
+                    
                     exit(0);
                 } else {
                     $_SESSION['status'] = "Please verify your email address to login!";
-                    header("Location: login.php");
+                    
                     exit(0);
                 }
             } else {
@@ -49,3 +53,4 @@ if (isset($_POST["login_now_btn"])) {
     }
 }
 ?>
+

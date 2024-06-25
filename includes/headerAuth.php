@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="../includes/style.css">
-    <link rel="icon" href="../images/social.png" type="image/x-icon">
+    <link rel="icon" href="../images/pfl_favbicon.png" type="image/x-icon">
 
 </head>
 <body>

@@ -3,6 +3,8 @@ $page_title = "Dashboard";
 include("../header.php");
 
 ?>
+
+<a href="../../"></a>
 <div class="wrapper">
     <?php 
     include("../sideNavbar.php"); //This is where you call the navbar

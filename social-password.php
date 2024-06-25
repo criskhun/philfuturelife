@@ -34,7 +34,7 @@ function sendemail_verify($name, $email, $verify_token)
     <h2>You have Registered with NinjaCris</h2>
     <h5>You are now an account holder of the NinjaCris System</h5>
     <br/><br/>
-    <a href='http://localhost/philfuturelife/dashboard.php'> Click Me </a>
+    <a href='http://localhost/philfuturelife/admin_panel.php'> Click Me </a>
     ";
 
     $mail->Body = $email_template;

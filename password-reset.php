@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION["authenticated"]))
 {
     $_SESSION['status'] = "You are already logged In.";
-    header("Location: apps/dashboard.php");
+    header("Location: apps/admin_panel.php");
     exit(0);
 }
 

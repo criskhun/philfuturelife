@@ -1,11 +1,10 @@
 <?php 
 session_start();
-
 require_once 'vendor/autoload.php';
 
-$clientID='656033405692-h3hnlt8osglalnpi06hjnq8nii9t34jp.apps.googleusercontent.com';
-$clientSecret='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';
-$redirectionUrl='http://localhost/philfuturelife/login.php';
+$clientID = '656033405692-h3hnlt8osglalnpi06hjnq8nii9t34jp.apps.googleusercontent.com';
+$clientSecret = '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';
+$redirectionUrl = 'http://localhost/philfuturelife/login.php';
 
 //Creating Google Request
 $client = new Google_Client();
@@ -15,14 +14,13 @@ $client->setRedirectUri($redirectionUrl);
 $client->addScope('profile');
 $client->addScope('email');
 
-if(isset($_GET['code']))
-{
-    $token=$client->fetchAccessTokenWithAuthCode($_GET['code']);
+if (isset($_GET['code'])) {
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
     $client->setAccessToken($token['access_token']);
 
     $oauth2 = new Google_Service_Oauth2($client);
     $userInfo = $oauth2->userinfo->get();
-    
+
     // Store user information in session variables
     $_SESSION['email'] = $userInfo->email;
     $_SESSION['name'] = $userInfo->name;
@@ -33,10 +31,10 @@ if(isset($_GET['code']))
     exit(0);
 }
 
-if (isset($_SESSION["authenticated"]))
-{
+// Check if the user is already authenticated
+if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true) {
     $_SESSION['status'] = "You are already logged In.";
-    header("Location: apps/dashboard.php");
+    header("Location: apps/admin_panel.php");
     exit(0);
 }
 
@@ -45,16 +43,13 @@ include('includes/header.php');
 include('includes/navbar.php');
 
 $email = isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '';
-
 ?>
 
 <div class="py-5" id="background-image">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <?php
-                    include('includes/status.php');
-                ?>
+                <?php include('includes/status.php'); ?>
                 <div class="card shadow">
                     <div class="card-header">
                         <h5>Welcome to PhilFutureLife</h5>
@@ -66,7 +61,7 @@ $email = isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '';
                                 <input type="text" name="email" value="<?= $email ?>" class="form-control">
                             </div>
                             <div class="input-group mb-3">
-                            <label for="password">Password</label>
+                                <label for="password">Password</label>
                                 <div class="input-group">
                                     <input type="password" name="password" id="password" class="form-control">
                                     <button class="btn btn-outline-secondary" style="opacity: 0.3;" type="button" onclick="togglePasswordVisibility('password', this)">

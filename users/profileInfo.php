@@ -57,66 +57,72 @@
                         <div class="tab-pane container <?php echo ($activeTab == 'basicInfo' ? 'active' : 'fade'); ?>" id="basicInfo">
                             <form action="" method="POST">
                                 <div class="row">
-                                    <div class="col-sm-6 mt-3 mb-3">
+                                    <div class="col-sm-6 mt-1 mb-1">
                                         <div class="form-floating mb-1 mt-3 overflow-hidden">
                                             <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
                                             <label for="email">Email</label>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <div class="form-floating mb-3 mt-3 overflow-hidden">
+                                                <div class="form-floating mb-1 mt-1 overflow-hidden">
                                                     <input type="text" class="form-control" id="fname" placeholder="First Name" name="fname">
                                                     <label for="fname">First Name</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
-                                                <div class="form-floating mb-3 mt-3 overflow-hidden">
+                                                <div class="form-floating mb-1 mt-1 overflow-hidden">
                                                     <input type="text" class="form-control" id="mname" placeholder="Middle Name" name="mname">
                                                     <label for="mname">Middle Name</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
-                                                <div class="form-floating mb-3 mt-3 overflow-hidden">
+                                                <div class="form-floating mb-1 mt-1 overflow-hidden">
                                                     <input type="text" class="form-control" id="sname" placeholder="Surname" name="sname">
                                                     <label for="sname">Surname</label>
                                                 </div>
-                                            </div>
+                                            </div>                                            
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-8">
-                                                <div class="form-floating mb-3 mt-2 overflow-hidden">
-                                                    <input type="text" class="form-control" id="datepicker" placeholder="Select date">
+                                            <div class="col-sm-2">
+                                                <div class="form-floating mb-1 mt-1 overflow-hidden">
+                                                    <input type="text" class="form-control" id="suffix" placeholder="Suffix" name="suffix">
+                                                    <label for="suffix">Suffix</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-floating mb-1 mt-1 overflow-hidden">
+                                                    <input type="date" class="form-control" id="datepicker" placeholder="Select date">
                                                     <label for="datepicker">Date of birth</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
-                                                <div class="form-floating mb-3 mt-2 overflow-hidden">
-                                                    <input type="text" class="form-control" id="age" placeholder="Age" name="age">
+                                                <div class="form-floating mb-1 mt-1 overflow-hidden">
+                                                    <input type="number" class="form-control" id="age" placeholder="Age" name="age">
                                                     <label for="age">Age</label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-floating mb-3 mt-2 overflow-hidden">
+                                        <div class="form-floating mb-2 mt-1 overflow-hidden">
                                             <input type="text" class="form-control" id="mnumber" placeholder="Mobile Number" name="mnumber">
                                             <label for="mnumber">Mobile Number</label>
                                         </div>
-                                        <div class="form-floating mb-3 mt-4 overflow-hidden">
+                                        <div class="form-floating mb-1 mt-1 overflow-hidden">
                                             <input type="text" class="form-control" id="tnumber" placeholder="Telephone Number" name="tnumber">
                                             <label for="tnumber">Telephone Number</label>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 mt-3 mb-3 d-flex flex-column">
-                                        <div class="form-floating mb-3 mt-3 overflow-hidden">
+                                    <div class="col-sm-6 mt-1 mb-1 d-flex flex-column">
+                                        <div class="form-floating mb-1 mt-3 overflow-hidden">
                                             <textarea class="form-control" id="paddress" name="paddress" placeholder="Present Address" oninput="autoResize(this)"></textarea>
                                             <label for="paddress">Present Address</label>
                                         </div>
-                                        <div class="form-floating mb-3 mt-2 overflow-hidden">
+                                        <div class="form-floating mb-1 mt-1 overflow-hidden">
                                             <textarea class="form-control" id="raddress" name="raddress" placeholder="Residential Address" oninput="autoResize(this)"></textarea>
                                             <label for="paddress">Residential Address</label>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <div class="form-floating mb-2 mt-2 overflow-hidden">
+                                                <div class="form-floating mb-1 mt-1 overflow-hidden">
                                                     <select class="form-select" id="gend" name="gend">
                                                         <option>Male</option>
                                                         <option>Female</option>
@@ -126,7 +132,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <div class="form-floating mb-2 mt-2 overflow-hidden">
+                                                <div class="form-floating mb-1 mt-1 overflow-hidden">
                                                     <select class="form-select" id="mstatus" name="mstatus">
                                                         <option>Single</option>
                                                         <option>Marriage</option>
@@ -141,13 +147,13 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <div class="form-floating mb-3 mt-3 overflow-hidden">
+                                                <div class="form-floating mb-1 mt-1 overflow-hidden">
                                                     <input type="text" class="form-control" id="religion" placeholder="Religion" name="religion">
                                                     <label for="religion">Religion</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                            <div class="form-floating mb-3 mt-3 overflow-hidden">
+                                            <div class="form-floating mb-1 mt-1 overflow-hidden">
                                                 <select class="form-select" id="pdisable" name="pdisable">
                                                     <option>No</option>
                                                     <option>Yes</option>                                                      
@@ -156,7 +162,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-floating mb-3 mt-2 overflow-hidden">
+                                        <div class="form-floating mb-1 mt-1 overflow-hidden">
                                             <select class="form-select" id="education" name="education">
                                                 <option>Elementary</option>
                                                 <option>Highschool</option>
@@ -610,7 +616,7 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
     var modal = document.getElementById('CertUp');
     modal.addEventListener('show.bs.modal', function (event) {
         var button = event.relatedTarget; // Button that triggered the modal
@@ -632,23 +638,23 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <script>
-function previewImage(event) {
-    var input = event.target;
-    var preview = document.getElementById('preview');
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+    function previewImage(event) {
+        var input = event.target;
+        var preview = document.getElementById('preview');
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-        reader.onload = function (e) {
-            preview.src = e.target.result;
-            preview.style.display = 'block';
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.src = "";
+            preview.style.display = 'none';
         }
-
-        reader.readAsDataURL(input.files[0]);
-    } else {
-        preview.src = "";
-        preview.style.display = 'none';
     }
-}
 </script>
 
 
